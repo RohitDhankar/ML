@@ -28,6 +28,9 @@ from length_of_stay_utils import train_test_split, evaluate_model, create_formul
 from SQLConnection import *
 
 # Set the Compute Context to local.
+### FOOBAR - dhankar --- compute context is where the code is actually being executed -
+### on local system or within the SQL SERVER
+
 rx_set_compute_context(local)
 
 ##########################################################################################################################################
