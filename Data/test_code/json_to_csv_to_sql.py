@@ -23,7 +23,7 @@ def read_json(json_file_name):
 	FilePath = r"C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code" # if the end of this string path has a \ - then the double Quote will be escaped 
 	df_csv.to_csv(FilePath + json_file_name +'__.csv') # JIRA_ROHIT - fix this	
 json_file_name = 'listingsAndReviews.json'
-read_json(json_file_name)
+#read_json(json_file_name)
 
 def csv_to_sql():
 	for driver in pyodbc.drivers():
@@ -38,14 +38,14 @@ def csv_to_sql():
 
 	server = 'DESKTOP-3CKFT1Q'
 	database = 'test_csv'
-	# cnxn - string below - will error out , if any spaces between = ' ( equal and single quotes etc)
-	cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; \
+	# CONNECTION_STRING - string below - will error out , if any spaces between = ' ( equal and single quotes etc)
+	CONNECTION_STRING = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; \
 						SERVER='+ server +'; \
 						DATABASE='+ database +';\
 						Trusted_connection=yes;')
-	print(cnxn)
+	print(CONNECTION_STRING)
 	#<pyodbc.Connection objeccct at 0x000001F5DEB7E030>
-	cursor = cnxn.cursor()
+	cursor = CONNECTION_STRING.cursor()
 	create_query = """
 	IF Object_ID('air_bnb') IS NULL
 
@@ -94,11 +94,17 @@ def csv_to_sql():
 	)
 	"""
 
-	connection_object: pyodbc.Connection = pyodbc.connect(CONNECTION_STRING)
+	connection_object: pyodbc.Connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; \
+						SERVER='+ server +'; \
+						DATABASE='+ database +';\
+						Trusted_connection=yes;')
 	cursor_object: pyodbc.Cursor = connection_object.cursor()
-	data_file = 'test_codelistingsAndReviews.json__.csv'
-	air_bnb_df: pandas.DataFrame = pandas.read_csv(
+	data_file = r"C:\21_01\gits_done_down\test_codelistingsAndReviews.json__.csv"
+
+	air_bnb_df: pd.DataFrame = pd.read_csv(
 	data_file,
+	encoding = 'utf-8',
+	delimiter = ';',
 	infer_datetime_format=True,
 	parse_dates=True
 	)
@@ -142,7 +148,7 @@ def csv_to_sql():
 	[images],                    
 	[host],                      
 	[address],                   
-	[availability],              
+	[availability],   
 	[review_scores],             
 	[reviews],                   
 	[weekly_price],              
@@ -161,8 +167,11 @@ def csv_to_sql():
 	)
 	"""
 
-cursor_object.execute(create_table_query)
-
+	cursor_object.execute(create_query)
+	cursor_object.commit()
+	df_records = air_bnb_df.values.tolist()
+	cursor_object.executemany(sql_insert, df_records)
+	cursor_object.commit()
 
 csv_to_sql()
 

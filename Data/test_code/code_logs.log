@@ -195,3 +195,24 @@ abcd@DESKTOP-3CKFT1Q MINGW64 /c/21_01/gits_done_down/jan_21_1/revopy/ML (dev_roh
 
 git restore --staged C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_codelistingsAndReviews.json__.csv
 
+pyodbc.ProgrammingError: ('The SQL contains 40 parameter markers, but 41 parameters were supplied', 'HY000')
+
+Traceback (most recent call last):
+  File ".\json_to_csv_to_sql.py", line 173, in <module>
+    csv_to_sql()
+  File ".\json_to_csv_to_sql.py", line 170, in csv_to_sql
+    cursor_object.executemany(sql_insert, df_records)
+pyodbc.Error: ('21S01', '[21S01] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]There are fewer columns in the INSERT 
+statement than values specified in the VALUES clause. The number of values in the VALUES clause must match the number of 
+columns specified in the INSERT statement. (110) (SQLExecDirectW); [21S01] [Microsoft][ODBC Driver 17 for SQL Server]
+[SQL Server]Statement(s) could not be prepared. (8180)')
+
+
+Windows PowerShell REDIRECTION 
+
+3>&1 2>&1 >
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection?view=powershell-7.1
+*>
+
+  Tee-Object -FilePath "c:\test\AllSystemFiles.txt" -Append 
+  Tee-Object -FilePath "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\test3.log" -Append 
