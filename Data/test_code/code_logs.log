@@ -192,3 +192,6 @@ error: pathspec 'Data/test_code/listingsAndReviews.json' did not match any f
 
 abcd@DESKTOP-3CKFT1Q MINGW64 /c/21_01/gits_done_down/jan_21_1/revopy/ML (dev_rohit)
 
+
+git restore --staged C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_codelistingsAndReviews.json__.csv
+
