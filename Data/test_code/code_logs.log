@@ -216,3 +216,107 @@ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/abo
 
   Tee-Object -FilePath "c:\test\AllSystemFiles.txt" -Append 
   Tee-Object -FilePath "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\test3.log" -Append 
+
+
+
+
+TITLE: Microsoft SQL Server Management Studio
+------------------------------
+Error inserting data into table. (Microsoft.SqlServer.Import.Wizard)
+------------------------------
+ADDITIONAL INFORMATION:
+Error inserting data into table. (Microsoft.SqlServer.Prose.Import)
+------------------------------
+Violation of PRIMARY KEY constraint 'PK_df_random'. Cannot insert duplicate key in object 'dbo.df_random'. The duplicate key value is (w*10133@gmail.com).
+The statement has been terminated. (Microsoft SQL Server, Error: 2627)
+For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&ProdVer=15.00.2000&EvtSrc=MSSQLServer&EvtID=2627&LinkId=20476
+------------------------------
+BUTTONS:
+OK
+------------------------------
+
+
+===================================
+
+Error inserting data into table. (Microsoft.SqlServer.Import.Wizard)
+
+------------------------------
+Program Location:
+
+   at Microsoft.SqlServer.Import.Wizard.InsertData.ResultCheck(Result result)
+   at Microsoft.SqlServer.Import.Wizard.InsertData.DoWork()
+   at Microsoft.SqlServer.Management.TaskForms.SimpleWorkItem.Run()
+
+===================================
+
+Error inserting data into table. (Microsoft.SqlServer.Prose.Import)
+
+------------------------------
+Program Location:
+
+   at Microsoft.SqlServer.Prose.Import.BcpTextSynthesis.InsertIntoDB(String inputFilePath, String tableName, String schemaName, IReadOnlyList`1 columnInfo, SqlConnection connection, Int32 batchSize, SqlTransaction transaction)
+   at Microsoft.SqlServer.Prose.Import.BcpProcess.<>c__DisplayClass60_0.<CreateTableAndInsertDataIntoDb>b__0()
+   at Microsoft.SqlServer.Prose.Import.BcpProcess.ExecuteOperation(Action operation)
+
+===================================
+
+Violation of PRIMARY KEY constraint 'PK_df_random'. Cannot insert duplicate key in object 'dbo.df_random'. The duplicate key value is (w*10133@gmail.com).
+The statement has been terminated. (.Net SqlClient Data Provider)
+
+------------------------------
+For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&ProdVer=15.00.2000&EvtSrc=MSSQLServer&EvtID=2627&LinkId=20476
+
+------------------------------
+Server Name: DESKTOP-3CKFT1Q
+Error Number: 2627
+Severity: 14
+State: 1
+Line Number: 1
+
+
+
+
+
+
+
+
+
+
+------------------------------
+Program Location:
+
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlBulkCopy.RunParser(BulkCopySimpleResultSet bulkCopyHandler)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinuedOnSuccess(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinued(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsync(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestContinuedAsync(BulkCopySimpleResultSet internalResults, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestAsync(CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalAsync(CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(IDataReader reader)
+   at Microsoft.SqlServer.Prose.Import.BcpTextSynthesis.InsertIntoDB(String inputFilePath, String tableName, String schemaName, IReadOnlyList`1 columnInfo, SqlConnection connection, Int32 batchSize, SqlTransaction transaction)
+
+
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [column1]
+      ,[Unnamed_0]
+      ,[Col1]
+      ,[Col2]
+      ,[Col3]
+      ,[Col4]
+      ,[Col5]
+      ,[Col6]
+      ,[Col7]
+      ,[Col8]
+      ,[col_rand_floats]
+      ,[col_emails]
+      ,[col_date_time]
+      ,[concat_cols]
+  FROM [test_csv].[dbo].[df_unq_df_random]
+  
