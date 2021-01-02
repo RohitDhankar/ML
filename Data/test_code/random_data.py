@@ -7,7 +7,7 @@ from datetime import datetime as dt_time
 from datetime import timedelta as tm_delta
 import string
 
-df_rows = 1000
+df_rows = 10000
 
 df = pd.DataFrame(np.random.randint(33,16234,size=(df_rows, 8)), 
 		columns=['Col1','Col2','Col3','Col4','Col5','Col6','Col7','Col8'])
@@ -35,35 +35,42 @@ def random_str(df_rows):
 	name = 'yes'
 	email = 'yes'
 	ls_rand_ltr_num = []
-	ls_rand_str1 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
+	ls_rand_str1 = [random.choice(string.ascii_letters) for k in range(len_str)]
 	#print(ls_rand_str1)
 	#print(len(ls_rand_str1))
-	ls_rand_str2 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
+	ls_rand_str2 = [random.choice(string.ascii_letters) for k in range(len_str)]
 	#print(len(ls_rand_str2))
 	# ls_rand_str = [''.join(random.choice(string.ascii_letters) for df_rows in range(len_str))]
 	# print(len(ls_rand_str))
 	#ls_ints = [np.random.randint(33,16234) for df_rows in range(df_rows)]
-	ls_ints1 = [np.random.randint(33,16234) for df_rows in range(len_str)]
+	ls_ints1 = [np.random.randint(33,16234) for k in range(len_str)]
 	ls_rand_delim = ['_','*','-','_xc__','_,_cv_','m_00_','kk_','mb_','_gh']
 	ls_email = ['@gmail.com','@yahoo.com','@yahoomail.com']
-	#print(ls_ints)
+	#print(len(ls_ints1))
 	for k_letter in ls_rand_str1:
 		for k_num in ls_ints1:
 			for k_delim in ls_rand_delim:
 				for k_email in ls_email:
 					#print(k_email) # Dont 
 					str_num_int = str(k_letter) + str(k_delim) + str(k_num) + str(k_email)
-					#ls_rand_ltr_num.append(str_num_int)
-	#print(len(ls_rand_ltr_num))
-	return str_num_int
+					ls_rand_ltr_num.append(str_num_int)
+	print(len(ls_rand_ltr_num)) # 522272 -- JIRA_ROHIT - with current code cant have - df_rows > 522272
+	# get a chunk of the list equal to the Len of rows of the DF
+	# ls_k_chunk = [ls_rand_ltr_num[k_chunk:k_chunk + df_rows] for k_chunk in range(0, len(ls_rand_ltr_num), df_rows)]
+	# print(len(ls_k_chunk)) ## Splits the LIST into Equal sized Chunks - Not Required
+	ls_k_chunk = ls_rand_ltr_num[:df_rows]
+	print(len(ls_k_chunk))
+
+	return ls_k_chunk
 	# below - JIRA_ROHIT - List Comp for the above 
 	# ls_rand_ltr_num_1 = [(str_num_int = str(k_letter) + str(k_delim) + str(k_num) + str(k_email)) for k_letter in ls_rand_str1 for k_num in ls_ints1 for k_delim in ls_rand_delim for k_email in ls_email]
 	# print(ls_rand_ltr_num_1)
-#str_num_int = random_str(df_rows)
+ls_k_chunk = random_str(df_rows)
 
-df['col_emails'] = ""
-df['col_emails'] = df['col_emails'].apply(lambda x: random_str(df_rows))
-# above is computation heavy - an alternative could be to create multiple columns and Concatenate
+df['col_emails'] = ls_k_chunk
+#df['col_emails'] = df['col_emails'].apply(lambda x: random_str())
+# above - apply(lambda x   -- is computation heavy - an alternative could be to create multiple columns and Concatenate
+
 
 # random dates 
 ls_rand_dt_delta = [ random.random() * (end_date - start_date) + start_date for x in range(df_rows)]
@@ -75,4 +82,4 @@ print(df.shape)
 print(df.head(7))
 print(df.tail(7))
 
-#df.to_csv('df_random.csv')
+df.to_csv('df_random.csv')
