@@ -36,15 +36,16 @@ def random_str(df_rows):
 	email = 'yes'
 	ls_rand_ltr_num = []
 	ls_rand_str1 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
-	print(ls_rand_str1)
+	#print(ls_rand_str1)
 	print(len(ls_rand_str1))
 	ls_rand_str2 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
+	print(len(ls_rand_str2))
 	
 	ls_rand_str = [''.join(random.choice(string.ascii_letters) for df_rows in range(len_str))]
-	print(ls_rand_str)
+	print(len(ls_rand_str))
 	#ls_ints = [np.random.randint(33,16234) for df_rows in range(df_rows)]
 	ls_ints1 = [np.random.randint(33,16234) for df_rows in range(len_str)]
-	ls_rand_delim = ['_','*','-','_xc__','_|_','__00__']
+	ls_rand_delim = ['_','*','-','_xc__','_,_cv_','m_00_','kk_','mb_','_gh']
 	ls_email = ['@gmail.com','@yahoo.com','@yahoomail.com']
 	#print(ls_ints)
 	for k_letter in ls_rand_str1:
@@ -52,8 +53,15 @@ def random_str(df_rows):
 			for k_delim in ls_rand_delim:
 				for k_email in ls_email:
 					str_num_int = str(k_letter) + str(k_delim) + str(k_num) + str(k_email)
-					ls_rand_ltr_num.append(str_num_int)
-	print(ls_rand_ltr_num)
+					#ls_rand_ltr_num.append(str_num_int)
+	#print(ls_rand_ltr_num)
+	return str_num_int
+
+	# ls_rand_ltr_num_1 = [(str_num_int = str(k_letter) + str(k_delim) + str(k_num) + str(k_email)) for k_letter in ls_rand_str1 for k_num in ls_ints1 for k_delim in ls_rand_delim for k_email in ls_email]
+	# print(ls_rand_ltr_num_1)
+
+
+
 
 random_str(df_rows)
 
