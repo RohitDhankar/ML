@@ -1,0 +1,218 @@
+python .\json_to_csv_to_sql.py
+
+
+--DF-df_csv_Shape == (5555, 41)
+
+
+        _id                            listing_url  ...                   weekly_price                  monthly_price
+0  10006546  https://www.airbnb.com/rooms/10006546  ...                            NaN                            NaN
+1  10009999  https://www.airbnb.com/rooms/10009999  ...  {'$numberDecimal': '1492.00'}  {'$numberDecimal': '4849.00'}
+2   1001265   https://www.airbnb.com/rooms/1001265  ...   {'$numberDecimal': '650.00'}  {'$numberDecimal': '2150.00'}
+
+[3 rows x 41 columns],
+
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5555 entries, 0 to 5554
+Data columns (total 41 columns):
+_id                      5555 non-null int64
+listing_url              5555 non-null object
+name                     5555 non-null object
+summary                  5555 non-null object
+space                    5555 non-null object
+description              5555 non-null object
+neighborhood_overview    5555 non-null object
+notes                    5555 non-null object
+transit                  5555 non-null object
+access                   5555 non-null object
+interaction              5555 non-null object
+house_rules              5555 non-null object
+property_type            5555 non-null object
+room_type                5555 non-null object
+bed_type                 5555 non-null object
+minimum_nights           5555 non-null int64
+maximum_nights           5555 non-null int64
+cancellation_policy      5555 non-null object
+last_scraped             5555 non-null object
+calendar_last_scraped    5555 non-null object
+first_review             4167 non-null object
+last_review              4167 non-null object
+accommodates             5555 non-null int64
+bedrooms                 5550 non-null float64
+beds                     5542 non-null float64
+number_of_reviews        5555 non-null int64
+bathrooms                5545 non-null object
+amenities                5555 non-null object
+price                    5555 non-null object
+security_deposit         3471 non-null object
+cleaning_fee             4024 non-null object
+extra_people             5555 non-null object
+guests_included          5555 non-null object
+images                   5555 non-null object
+host                     5555 non-null object
+address                  5555 non-null object
+availability             5555 non-null object
+review_scores            5555 non-null object
+reviews                  5555 non-null object
+weekly_price             714 non-null object
+monthly_price            656 non-null object
+dtypes: float64(2), int64(5), object(34)
+memory usage: 1.7+ MB
+None
+
+
+_id                        int64
+listing_url               object
+name                      object
+summary                   object
+space                     object
+description               object
+neighborhood_overview     object
+notes                     object
+transit                   object
+access                    object
+interaction               object
+house_rules               object
+property_type             object
+room_type                 object
+bed_type                  object
+minimum_nights             int64
+maximum_nights             int64
+cancellation_policy       object
+last_scraped              object
+calendar_last_scraped     object
+first_review              object
+last_review               object
+accommodates               int64
+bedrooms                 float64
+beds                     float64
+number_of_reviews          int64
+bathrooms                 object
+amenities                 object
+price                     object
+security_deposit          object
+cleaning_fee              object
+extra_people              object
+guests_included           object
+images                    object
+host                      object
+address                   object
+availability              object
+review_scores             object
+reviews                   object
+weekly_price              object
+monthly_price             object
+dtype: object
+
+
+--DF_df_csv_Shape= (5555, 40)
+
+
+SQL Server
+Microsoft Access Driver (*.mdb, *.accdb)
+Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)
+Microsoft Access Text Driver (*.txt, *.csv)
+SQL Server Native Client 11.0
+SQL Server Native Client RDA 11.0
+ODBC Driver 17 for SQL Server
+<pyodbc.Connection object at 0x000001EF313675E0>
+
+
+
+
+
+
+
+[listing_url],               
+	[name],                      
+	[summary],                   
+	[space],                     
+	[description],               
+	[neighborhood_overview],     
+	[notes],                     
+	[transit],                   
+	[access],                    
+	[interaction],               
+	[house_rules],               
+	[property_type],             
+	[room_type],                 
+	[bed_type],                  
+	[minimum_nights],             
+	[maximum_nights],             
+	[cancellation_policy],       
+	[last_scraped],              
+	[calendar_last_scraped],     
+	[first_review],              
+	[last_review],               
+	[accommodates],               
+	[bedrooms],                 
+	[beds],                     
+	[number_of_reviews],          
+	[bathrooms],                 
+	[amenities],                 
+	[price],                     
+	[security_deposit],          
+	[cleaning_fee],              
+	[extra_people],              
+	[guests_included],           
+	[images],                    
+	[host],                      
+	[address],                   
+	[availability],              
+	[review_scores],             
+	[reviews],                   
+	[weekly_price],              
+	[monthly_price]         
+	)
+
+
+
+
+
+abcd@DESKTOP-3CKFT1Q MINGW64 /c/21_01/gits_done_down/jan_21_1/revopy/ML (dev_rohit)
+$ git status
+On branch dev_rohit
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Data/test_code/code_logs.log
+        modified:   Data/test_code/json_to_csv_to_sql.py
+        new file:   Data/test_code/listingsAndReviews.json
+        new file:   Data/test_codelistingsAndReviews.json__.csv
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    Data/test_code/listingsAndReviews.json
+        deleted:    Data/test_codelistingsAndReviews.json__.csv
+
+
+abcd@DESKTOP-3CKFT1Q MINGW64 /c/21_01/gits_done_down/jan_21_1/revopy/ML (dev_rohit)
+$ git restore --staged /c/21_01/gits_done_down/jan_21_1/revopy/ML/Data/test_code/listingsAndReviews.json
+error: pathspec 'Data/test_code/listingsAndReviews.json' did not match any file(s) known to git
+
+abcd@DESKTOP-3CKFT1Q MINGW64 /c/21_01/gits_done_down/jan_21_1/revopy/ML (dev_rohit)
+
+
+git restore --staged C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_codelistingsAndReviews.json__.csv
+
+pyodbc.ProgrammingError: ('The SQL contains 40 parameter markers, but 41 parameters were supplied', 'HY000')
+
+Traceback (most recent call last):
+  File ".\json_to_csv_to_sql.py", line 173, in <module>
+    csv_to_sql()
+  File ".\json_to_csv_to_sql.py", line 170, in csv_to_sql
+    cursor_object.executemany(sql_insert, df_records)
+pyodbc.Error: ('21S01', '[21S01] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]There are fewer columns in the INSERT 
+statement than values specified in the VALUES clause. The number of values in the VALUES clause must match the number of 
+columns specified in the INSERT statement. (110) (SQLExecDirectW); [21S01] [Microsoft][ODBC Driver 17 for SQL Server]
+[SQL Server]Statement(s) could not be prepared. (8180)')
+
+
+Windows PowerShell REDIRECTION 
+
+3>&1 2>&1 >
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection?view=powershell-7.1
+*>
+
+  Tee-Object -FilePath "c:\test\AllSystemFiles.txt" -Append 
+  Tee-Object -FilePath "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\test3.log" -Append 
