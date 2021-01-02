@@ -28,14 +28,34 @@ df['col_rand_floats'] = ls_rand_floats
 # date_delta = (end_date - start_date) + start_date
 # print(date_delta)
 
-#random strings to generate names and emails etc 
 
-# def rand_str(len_str):
-#     return ''.join(random.choice(string.ascii_letters) for df_rows in range(length))
-len_str = 14
-ls_rand_str = [''.join(random.choice(string.ascii_letters) for df_rows in range(len_str))]
-print(ls_rand_str)
+def random_str(df_rows):
+	""" random strings to generate names and emails etc """
+	len_str = 44
+	name = 'yes'
+	email = 'yes'
+	ls_rand_ltr_num = []
+	ls_rand_str1 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
+	print(ls_rand_str1)
+	print(len(ls_rand_str1))
+	ls_rand_str2 = [random.choice(string.ascii_letters) for df_rows in range(len_str)]
+	
+	ls_rand_str = [''.join(random.choice(string.ascii_letters) for df_rows in range(len_str))]
+	print(ls_rand_str)
+	#ls_ints = [np.random.randint(33,16234) for df_rows in range(df_rows)]
+	ls_ints1 = [np.random.randint(33,16234) for df_rows in range(len_str)]
+	ls_rand_delim = ['_','*','-','_xc__','_|_','__00__']
+	ls_email = ['@gmail.com','@yahoo.com','@yahoomail.com']
+	#print(ls_ints)
+	for k_letter in ls_rand_str1:
+		for k_num in ls_ints1:
+			for k_delim in ls_rand_delim:
+				for k_email in ls_email:
+					str_num_int = str(k_letter) + str(k_delim) + str(k_num) + str(k_email)
+					ls_rand_ltr_num.append(str_num_int)
+	print(ls_rand_ltr_num)
 
+random_str(df_rows)
 
 # random dates 
 ls_rand_dt_delta = [ random.random() * (end_date - start_date) + start_date for x in range(df_rows)]
@@ -43,7 +63,7 @@ ls_rand_dt_delta = [ random.random() * (end_date - start_date) + start_date for 
 dt_frmt = '%Y-%m-%d %H:%M:%S.%f'
 #dt_frmt = '%Y-%m-%d %H:%M:%S'
 df['col_date_time'] = ls_rand_dt_delta
-print(df.shape)
-print(df.head(2))
+# print(df.shape)
+# print(df.head(2))
 
 #df.to_csv('df_random.csv')
