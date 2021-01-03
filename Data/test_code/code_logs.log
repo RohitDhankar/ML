@@ -354,4 +354,134 @@ SELECT TOP (1000) [CONSTRAINT_CATALOG]
 
 
 
-  
+
+
+
+
+  CREATE TABLE [dbo].[df_unq_df_random_1] (
+[Column 0] varchar(50),
+[Unnamed  0] varchar(50),
+[Col1] varchar(50),
+[Col2] varchar(50),
+[Col3] varchar(50),
+[Col4] varchar(50),
+[Col5] varchar(50),
+[Col6] varchar(50),
+[Col7] varchar(50),
+[Col8] varchar(50),
+[col_rand_floats] varchar(50),
+[col_emails] varchar(50),
+[col_date_time] varchar(50),
+[concat_cols] varchar(50)
+)
+
+
+Click Finish to perform the following actions: 
+
+
+Destination Location : DESKTOP-3CKFT1Q
+Destination Provider : SQLNCLI11
+
+Copy rows from C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_unq_df_random_1.csv to [dbo].[df_unq_df_random_1]
+The new target table will be created.
+
+The package will not be saved. 
+The package will be run immediately. 
+
+Provider mapping file : C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\MappingFiles\SSIS10ToMSSQL.XML
+
+
+######## FOOBAR_REPORT
+The execution was successful
+
+- Initializing Data Flow Task (Success)
+
+- Initializing Connections (Success)
+
+- Setting SQL Command (Success)
+
+- Setting Source Connection (Success)
+
+- Setting Destination Connection (Success)
+
+- Validating (Success)
+	Messages
+	* Warning 0x80049304: Data Flow Task 1: Warning: Could not open global shared memory to communicate with performance DLL; data flow performance counters are not available.  To resolve, run this package as an administrator, or on the system's console.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Prepare for Execute (Success)
+
+- Pre-execute (Success)
+	Messages
+	* Information 0x402090dc: Data Flow Task 1: The processing of file "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_unq_df_random_1.csv" has started.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Executing (Success)
+	Messages
+	* Information 0x402090de: Data Flow Task 1: The total number of data rows processed for file "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_unq_df_random_1.csv" is 10001.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Copying to [dbo].[df_unq_df_random_1] (Success)
+	* 10000 rows transferred
+
+	Messages
+	* Information 0x402090df: Data Flow Task 1: The final commit for the data insertion in "Destination - df_unq_df_random_1" has started.
+	 (SQL Server Import and Export Wizard)
+	
+	* Information 0x402090e0: Data Flow Task 1: The final commit for the data insertion  in "Destination - df_unq_df_random_1" has ended.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Post-execute (Success)
+	Messages
+	* Information 0x402090dd: Data Flow Task 1: The processing of file "C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_unq_df_random_1.csv" has ended.
+	 (SQL Server Import and Export Wizard)
+	
+	* Information 0x4004300b: Data Flow Task 1: "Destination - df_unq_df_random_1" wrote 10000 rows.
+	 (SQL Server Import and Export Wizard)
+	
+
+
+
+##### FOOBAR--Import Export Wizard 
+Value 	Description
+{CR}{LF} 	The header row is delimited by a carriage return-line feed combination.
+
+
+
+
+SELECT j.concat_cols , u.Col1 , u.Col2 , j.Item_1_purchaseCount , j.Item_2_purchaseCount
+FROM test_csv.dbo.df_join AS j
+JOIN test_csv.dbo.df_unq_df_random_1 AS u
+ON j.concat_cols=u.concat_cols;
+
+
+--DESCRIBE test_csv.dbo.df_join;
+exec sp_columns df_join;
+
+
+
+C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code
+
+/*CREATE VIEW dbo.view_df_unq
+AS
+SELECT j.concat_cols , u.Col1 , u.Col2 , j.Item_1_purchaseCount , j.Item_2_purchaseCount
+FROM test_csv.dbo.df_join AS j
+JOIN test_csv.dbo.df_unq_df_random_1 AS u
+ON j.concat_cols = u.concat_cols;
+*/
+
+-- SELECT data from View 
+
+/*SELECT * FROM view_df_unq */
+
+-- sp_helptext ( call a stored proc to see details about the view)
+/*sp_helptext view_df_unq */
+
+-- filter data within VIEW with a WHERE clause
+SELECT * FROM view_df_unq
+WHERE 
+

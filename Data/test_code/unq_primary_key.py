@@ -3,7 +3,7 @@ import pandas as pd
 
 def csv_unq_rows(csv_file_name):
 	""" need to create a Unique Primary Key value for SQL insert"""
-	file_path = r"C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_random.csv"
+	file_path = r"C:\21_01\gits_done_down\jan_21_1\revopy\ML\Data\test_code\df_random_1.csv"
 			
 	df_fix_unq: pd.DataFrame = pd.read_csv(
 	file_path,
@@ -35,5 +35,5 @@ def csv_unq_rows(csv_file_name):
 		df_fix_unq.to_csv("df_unq_" + csv_file_name)
 	else:
 		print("--Not created unQ Primary Key for SQL Insert")
-csv_file_name = 'df_random.csv'
+csv_file_name = 'df_random_1.csv'
 csv_unq_rows(csv_file_name)
