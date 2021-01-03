@@ -475,7 +475,6 @@ ON j.concat_cols = u.concat_cols;
 */
 
 -- SELECT data from View 
-
 /*SELECT * FROM view_df_unq */
 
 -- sp_helptext ( call a stored proc to see details about the view)
@@ -483,5 +482,6 @@ ON j.concat_cols = u.concat_cols;
 
 -- filter data within VIEW with a WHERE clause
 SELECT * FROM view_df_unq
-WHERE 
+WHERE view_df_unq.concat_cols='16.51810509828813_y_9862@yahoo.com';
+
 
