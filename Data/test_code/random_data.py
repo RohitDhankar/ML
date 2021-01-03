@@ -44,7 +44,9 @@ def random_str(df_rows):
 	# print(len(ls_rand_str))
 	#ls_ints = [np.random.randint(33,16234) for df_rows in range(df_rows)]
 	ls_ints1 = [np.random.randint(33,16234) for k in range(len_str)]
-	ls_rand_delim = ['_','*','-','_xc__','_,_cv_','m_00_','kk_','mb_','_gh']
+	#ls_rand_delim = ['_','*','-','_xc__','_,_cv_','m_00_','kk_','mb_','_gh'] 
+	# NO COMMA -- SQL Server will split the COMMA into another Columnar Data in SQL-Table
+	ls_rand_delim = ['_','*','-','_xc__','_cv_','m_00_','kk_','mb_','_gh']
 	ls_email = ['@gmail.com','@yahoo.com','@yahoomail.com']
 	#print(len(ls_ints1))
 	for k_letter in ls_rand_str1:
@@ -82,4 +84,4 @@ print(df.shape)
 print(df.head(7))
 print(df.tail(7))
 
-df.to_csv('df_random.csv')
+df.to_csv('df_random_1.csv')
