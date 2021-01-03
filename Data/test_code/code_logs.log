@@ -320,3 +320,38 @@ SELECT TOP (1000) [column1]
       ,[concat_cols]
   FROM [test_csv].[dbo].[df_unq_df_random]
   
+
+
+
+
+TITLE: 'SqlServer' module not found
+------------------------------
+No SQL Server cmdlets found on this computer. 
+Get the 'SqlServer' module at https://powershellgallery.com/packages/SqlServer
+
+Start PowerShell without SQL Server cmdlets?
+For help, click: https://go.microsoft.com/fwlink/?linkid=842573
+------------------------------
+BUTTONS:
+
+&Yes
+&No
+Open PowerShell &Gallery
+------------------------------
+
+
+
+
+
+
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [CONSTRAINT_CATALOG]
+      ,[CONSTRAINT_SCHEMA]
+      ,[CONSTRAINT_NAME]
+      ,[CHECK_CLAUSE]
+  FROM [test_csv].[INFORMATION_SCHEMA].[CHECK_CONSTRAINTS]
+
+
+
+  
