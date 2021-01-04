@@ -495,4 +495,45 @@ EXEC	@return_value = [dbo].[spGetCountGmail_9]
 SELECT	'Return Value' = @return_value
 GO
 
-#### FOOBAR -
+#### FOOBAR - to view the DEFINITION of a PROC - we can use the GUI and get results as below
+USE [test_csv]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spGmailParams]    Script Date: 1/4/2021 7:49:45 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[spGmailParams]
+@param_email nvarchar(20),
+@param_concat_cols nvarchar(20)
+AS
+BEGIN
+	SELECT concat_cols FROM df_unq_df_random_1 WHERE RIGHT(concat_cols,9) = @param_email;
+END
+GO
+
+
+#### FOOBAR --- ALTER PROC spGmailParams1
+-- execute spGmailParams 'gmail.com' , 'gmail.com'
+-- execute spGmailParams1 'gmail.com'
+
+-- CREATE PROC spGmailParams1
+ALTER PROC spGmailParams1
+@param_email nvarchar(20),
+-- @param_concat_cols nvarchar(20)
+@param_int int
+AS
+BEGIN
+	SELECT concat_cols FROM df_unq_df_random_1 
+	WHERE RIGHT(concat_cols,9) = @param_email AND RIGHT(Col8,1) = @param_int
+END
+
+
+#### FOOBAR --- DROP PROC spGmailParams1
+
+
+
+
