@@ -534,6 +534,17 @@ END
 
 #### FOOBAR --- DROP PROC spGmailParams1
 
+#### FOOBAR -- Own Error Solved 
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server]
+[SQL Server]Must pass parameter number 2 and subsequent parameters as '@name = value'. 
+After the form '@name = value' has been used, all subsequent parameters must be passed in the form '@name = value'. 
+(119) (SQLExecDirectW); [42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+
+File ".\pyodbc_1.py", line 61, in <module>
+    cursor.execute("UPDATE test_pyodbc " +  "SET fullName = name + " " + email")
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The SELECT permission was denied on the object 'test_pyodbc', database 'test_csv', schema 'dbo'. (229) (SQLExecDirectW); [42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The UPDATE permission was denied on the object 'test_pyodbc', database 'test_csv',
+schema 'dbo'. (229)")
 
 
 
