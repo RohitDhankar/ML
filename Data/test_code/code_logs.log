@@ -485,3 +485,14 @@ SELECT * FROM view_df_unq
 WHERE view_df_unq.concat_cols='16.51810509828813_y_9862@yahoo.com';
 
 
+
+#### FOOBAR - when we execute the proc == spGetCountGmail_9 , from SQLServer GUI 
+
+USE [test_csv]
+GO
+DECLARE	@return_value int
+EXEC	@return_value = [dbo].[spGetCountGmail_9]
+SELECT	'Return Value' = @return_value
+GO
+
+#### FOOBAR -
